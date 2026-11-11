@@ -26,3 +26,32 @@ In Agent summary networks interfaces are not comming
 Enrollment Credentials Should Not Be Exposed in Agent UI
 
 CYB-6107: Agent Tamper Detection is not working
+
+
+
+
+Now I have a clear picture. Here are the accurate status statements for each point:
+
+1. CUSA uninstaller leaves credentials, API tokens, telemetry, and crash dumps on the system
+Status: Partially addressed — core data purged, WER/AppData not covered.
+
+decommission.js now purges config, state, secrets, queue, cache, updates, and manager directories. The decommission() call in agent.js also best-effort deregisters the agent identity from the manager before purge. However, Windows Error Reporting crash dumps (under %LOCALAPPDATA%\Microsoft\Windows\WER) and any AppData/temp artifacts left by the GUI process are not currently swept. Those paths need to be added to purgeAgentData() and wired into the MSI uninstall CustomAction.
+
+2. In Agent summary network interfaces are not coming
+Status: Bug present — getStatus() does not include interfaces; scanner collects them but they're never surfaced to the Dashboard.
+
+scanner.js correctly collects interface data via scanWindowsInterfaces (Windows) and os.networkInterfaces() (Linux). However, agent.js → getStatus() only returns identity/metrics/queue fields — inventory data (including interfaces) is not included. The Dashboard has no inventory/interfaces section either. The data exists in the inventory scan result but is not exposed through the /api/status endpoint or rendered in the GUI.
+
+3. Enrollment Credentials Should Not Be Exposed in Agent UI
+Status: Correctly handled at the API layer — credentials are redacted before they reach the GUI.
+
+server.js calls redactEnrollment(agent.config.wazuh?.enrollment) before returning status, which strips password and apiPassword, replacing them with boolean true/false presence flags. The Configuration.jsx page description says "Enrollment uses the built-in CyberSIO credentials" and renders secret fields as type="password" inputs. The credentials themselves (FIXED_ENROLLMENT) are never injected into the GUI payload.
+
+4. CYB-6107: Agent Tamper Detection is not working
+Status: Fixed.
+
+tamper.js was rewritten to: (1) gate on enabled flag, (2) alert once per changed path (alertOnce + alerted Set) instead of flooding every check cycle, (3) hold the last-known-good baseline without mutating it on change, (4) re-arm when a path reverts to its trusted hash, and (5) expose a trust() method for explicit re-trust after authorized updates. agent.js broadens the watched path set (install dir, config dir, deploy manifest, install marker, plus operator-defined tamper.paths) and passes enabled/alertOnce from config. Previously the detector had no enabled guard and no alert-dedup, so it either spammed or appeared silent.
+
+
+
+
