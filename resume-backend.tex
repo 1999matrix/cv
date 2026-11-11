@@ -24,7 +24,7 @@
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
-\linespread{0.91}
+\linespread{0.93}
 
 % ---------- Section Formatting ----------
 \titleformat{\section}
@@ -69,10 +69,10 @@
 % ---------- Document ----------
 \begin{document}
 
-% ---------- Header (kept in body text, not in PDF header/footer) ----------
+% ---------- Header ----------
 \begin{center}
     {\LARGE \textbf{SHASHWAT DWIVEDI}} \\[1pt]
-    \textbf{Backend Engineer -- Distributed Systems, APIs \& Scalable Microservices} \\[3pt]
+    \textbf{Backend Engineer -- Distributed Systems \& Scalable APIs} \\[3pt]
 
     Bangalore, India
     \;|\;
@@ -88,17 +88,16 @@
 
 % ---------- Summary ----------
 \section{Summary}
-Backend engineer with 2+ years building production services on Node.js, NestJS, and FastAPI. Designs event-driven microservices with Apache Kafka, Redis, and PostgreSQL that monitor 5,000+ endpoints and serve 50,000+ users. Improved processing throughput by 40\% and cut query and response latency by 30--35\% through caching, query optimization, and parallelization. Focused on scalable, reliable REST APIs and distributed systems.
+Backend engineer with 2+ years building scalable, distributed systems in Node.js, NestJS, and FastAPI. Designs event-driven microservices with Apache Kafka, Redis, and PostgreSQL serving 5,000+ endpoints and 50,000+ users. Improved throughput by 40\% and cut latency 30--35\% through caching, query optimization, and asynchronous processing.
 
-% ---------- Skills (near top for 10-second recruiter scan + ATS keyword density) ----------
+% ---------- Skills ----------
 \section{Technical Skills}
 
 \textbf{Languages:} JavaScript, TypeScript, Python, Go, C++, SQL \\[1pt]
-\textbf{Backend \& APIs:} Node.js, Express.js, NestJS, FastAPI, REST APIs, GraphQL, WebSockets, Server-Sent Events (SSE) \\[1pt]
-\textbf{Distributed Systems:} Apache Kafka, Redis, BullMQ, Message Queues, Event-Driven Architecture, Microservices, Pub/Sub \\[1pt]
-\textbf{Databases:} PostgreSQL, pgvector, Indexing, Query Optimization, Normalization, Referential Integrity, Shared Buffers, pg\_prewarm \\[1pt]
-\textbf{Performance \& Caching:} Redis Caching, In-Memory Caching, Batch Writes, Parallelization, SSE Streaming \\[1pt]
-\textbf{Cloud \& DevOps:} AWS (EC2, S3), Docker, CI/CD, Linux, Git, GitHub, Agile
+\textbf{Backend \& APIs:} Node.js, Express.js, NestJS, FastAPI, REST APIs, GraphQL, WebSockets, SSE, API Gateway \\[1pt]
+\textbf{System Design \& Reliability:} Microservices, Event-Driven Architecture, Message Queues, Pub/Sub, Idempotency, Retry with Backoff, Dead-Letter Queue, Circuit Breaker, Rate Limiting, Horizontal Scaling \\[1pt]
+\textbf{Databases \& Caching:} PostgreSQL, pgvector, Redis, Cache-Aside, Indexing, Query Optimization, Connection Pooling \\[1pt]
+\textbf{Distributed \& Cloud:} Apache Kafka, BullMQ, AWS (EC2, S3), Docker, CI/CD, Linux, Git
 
 % ---------- Experience ----------
 \section{Professional Experience}
@@ -110,15 +109,15 @@ Backend engineer with 2+ years building production services on Node.js, NestJS, 
     {Gurugram, India}
 
 \begin{itemize}
-    \resumeItem{\textbf{[Distributed Systems / Kafka]} Designed an event-driven microservices architecture for TB-SOAR, decomposing incident-processing workflows into independent Apache Kafka services that reliably handle high-volume SIEM alerts and let components scale independently without impacting the overall system.}
+    \resumeItem{Designed an event-driven microservices architecture for TB-SOAR (Apache Kafka) with idempotent consumers, exponential-backoff retries, and a dead-letter queue, handling high-volume SIEM alerts reliably and scaling horizontally.}
 
-    \resumeItem{\textbf{[Node.js / SSE]} Built Patch Management and Vulnerability Assessment backend services monitoring \textbf{5,000+ endpoints}, with real-time scan progress streamed over Server-Sent Events (SSE).}
+    \resumeItem{Built Patch Management and Vulnerability Assessment services monitoring \textbf{5,000+ endpoints}, streaming real-time scan progress over Server-Sent Events (SSE).}
 
-    \resumeItem{\textbf{[PostgreSQL / Performance]} Improved vulnerability detection throughput by \textbf{40\%} by parallelizing threat-intelligence processing and using batch database writes; tuned PostgreSQL through indexing, normalization, referential integrity, shared buffers, and pg\_prewarm to sustain query performance under cold-cache conditions.}
+    \resumeItem{Improved vulnerability detection throughput by \textbf{40\%} through parallel threat-intelligence processing, asynchronous jobs, and batch database writes.}
 
-    \resumeItem{\textbf{[RAG / LLM]} Built backend services for \textbf{AstraAI}, a Retrieval-Augmented Generation (RAG) assistant that unifies natural-language queries across \textbf{8 security tools} (SIEM, UEBA, SOAR, NAC, PAM, IAM, Patch Management, Vulnerability Assessment) in one interface.}
+    \resumeItem{Optimized PostgreSQL with indexing, normalization, connection pooling, and pg\_prewarm to sustain low query latency under cold-cache load.}
 
-    \resumeItem{\textbf{[Windows Agent]} Built a Windows agent that automatically collects OS, hardware, software, and security telemetry from each machine and streams it to backend APIs, replacing manual data collection.}
+    \resumeItem{Built backend services for \textbf{AstraAI}, a Retrieval-Augmented Generation (RAG) assistant that unifies queries across \textbf{8 security tools} (SIEM, UEBA, SOAR, NAC, PAM, IAM, Patch Management, Vulnerability Assessment) behind an API gateway with circuit breakers to isolate failures.}
 \end{itemize}
 
 \vspace{1pt}
@@ -130,11 +129,11 @@ Backend engineer with 2+ years building production services on Node.js, NestJS, 
     {Noida, India}
 
 \begin{itemize}
-    \resumeItem{\textbf{[PostgreSQL]} Made database queries about \textbf{35\% faster} for a platform with \textbf{50,000+ active users} by eliminating repeated-query (N+1) patterns and adding missing indexes.}
+    \resumeItem{Cut average API response time by \textbf{30\%} using cache-aside caching in Redis on high-traffic endpoints.}
 
-    \resumeItem{\textbf{[Node.js / Redis]} Cut average API response time by \textbf{30\%} by caching frequently requested data in Redis on high-traffic endpoints.}
+    \resumeItem{Made database queries about \textbf{35\% faster} for a platform with \textbf{50,000+ active users} by eliminating repeated-query (N+1) patterns and adding missing indexes.}
 
-    \resumeItem{Resolved scalability bottlenecks with product and engineering teams ahead of peak exam season, sustaining \textbf{zero downtime} during peak traffic.}
+    \resumeItem{Resolved scalability bottlenecks with product and engineering teams before peak exam season, sustaining \textbf{zero downtime} during peak traffic.}
 \end{itemize}
 
 % ---------- Projects ----------
@@ -146,9 +145,9 @@ Backend engineer with 2+ years building production services on Node.js, NestJS, 
     {github.com/1999matrix/vulnerability-scanner}
 
 \begin{itemize}
-    \resumeItem{Built a multithreaded port scanner that checks \textbf{500+ ports per second}, with adjustable scan depth and rate limiting.}
+    \resumeItem{Built a multithreaded port scanner checking \textbf{500+ ports per second} with configurable scan depth and rate limiting.}
 
-    \resumeItem{Cut repeated database lookups by \textbf{60\%} during large scans by caching CVE (known vulnerability) data in memory.}
+    \resumeItem{Reduced repeated database lookups by \textbf{60\%} using an in-memory cache for CVE (known vulnerability) data.}
 \end{itemize}
 
 \vspace{1pt}
@@ -159,7 +158,7 @@ Backend engineer with 2+ years building production services on Node.js, NestJS, 
     {github.com/1999matrix/Memora}
 
 \begin{itemize}
-    \resumeItem{Built a multi-tenant backend for an AI knowledge assistant with FastAPI, NestJS, PostgreSQL/pgvector, Redis, and BullMQ, syncing \textbf{8 data sources} incrementally so only changed data is re-processed.}
+    \resumeItem{Built a multi-tenant backend (FastAPI, NestJS, PostgreSQL/pgvector, Redis, BullMQ) with incremental sync across \textbf{8 data sources}, re-processing only changed data.}
 \end{itemize}
 
 % ---------- Achievements ----------

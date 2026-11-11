@@ -24,7 +24,7 @@
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
-\linespread{0.91}
+\linespread{0.93}
 
 % ---------- Section Formatting ----------
 \titleformat{\section}
@@ -69,7 +69,7 @@
 % ---------- Document ----------
 \begin{document}
 
-% ---------- Header (kept in body text, not in PDF header/footer) ----------
+% ---------- Header ----------
 \begin{center}
     {\LARGE \textbf{SHASHWAT DWIVEDI}} \\[1pt]
     \textbf{AI Engineer -- LLM Applications, RAG \& Generative AI} \\[3pt]
@@ -88,15 +88,15 @@
 
 % ---------- Summary ----------
 \section{Summary}
-AI engineer with 2+ years building production LLM applications on a strong Python and FastAPI backend. Ships Retrieval-Augmented Generation (RAG) assistants over enterprise data using hybrid search (vector + BM25), pgvector, OpenAI API, and LangChain across 8+ integrated data sources. Builds scalable, low-latency AI systems backed by event-driven services (Apache Kafka, Redis).
+AI engineer with 2+ years building production LLM applications on a strong Python and FastAPI backend. Ships Retrieval-Augmented Generation (RAG) assistants over enterprise data using hybrid search (vector + BM25), pgvector, OpenAI API, and LangChain across 8+ data sources. Builds scalable, low-latency AI systems backed by event-driven microservices (Apache Kafka, Redis).
 
-% ---------- Skills (near top for 10-second recruiter scan + ATS keyword density) ----------
+% ---------- Skills ----------
 \section{Technical Skills}
 
 \textbf{Languages:} Python, JavaScript, TypeScript, C++, SQL \\[1pt]
 \textbf{Generative AI \& LLMs:} Retrieval-Augmented Generation (RAG), OpenAI API, LangChain, Llama 3, Prompt Engineering, Semantic Search \\[1pt]
 \textbf{Retrieval \& Vector Search:} pgvector, Vector Embeddings, Hybrid Search, BM25, Chunking, Incremental Indexing \\[1pt]
-\textbf{AI Application Backend:} FastAPI, NestJS, Node.js, REST APIs, SSE Streaming, Multi-Tenant Architecture \\[1pt]
+\textbf{AI Backend \& System Design:} FastAPI, NestJS, Microservices, Event-Driven Architecture, API Gateway, Circuit Breaker, Idempotency, Cache-Aside, SSE Streaming, Horizontal Scaling \\[1pt]
 \textbf{Data \& Infrastructure:} PostgreSQL, Redis, BullMQ, Apache Kafka, Docker, AWS (EC2, S3), Linux, Git
 
 % ---------- Experience ----------
@@ -109,13 +109,13 @@ AI engineer with 2+ years building production LLM applications on a strong Pytho
     {Gurugram, India}
 
 \begin{itemize}
-    \resumeItem{\textbf{[RAG / LLM]} Built backend services for \textbf{AstraAI}, a Retrieval-Augmented Generation (RAG) security assistant that answers analysts' natural-language questions with data unified across \textbf{8 security tools} (SIEM, UEBA, SOAR, NAC, PAM, IAM, Patch Management, Vulnerability Assessment), replacing manual dashboard-switching.}
+    \resumeItem{Built backend services for \textbf{AstraAI}, a Retrieval-Augmented Generation (RAG) security assistant that answers analysts' natural-language questions with data unified across \textbf{8 security tools} (SIEM, UEBA, SOAR, NAC, PAM, IAM, Patch Management, Vulnerability Assessment), orchestrated behind an API gateway with circuit breakers and retries for resilient tool calls.}
 
-    \resumeItem{\textbf{[Distributed Systems / Kafka]} Designed an event-driven microservices architecture for TB-SOAR, decomposing incident-processing workflows into independent Apache Kafka services that reliably handle high-volume SIEM alerts and scale independently.}
+    \resumeItem{Designed an event-driven microservices architecture (Apache Kafka) with idempotent consumers and a dead-letter queue, processing high-volume SIEM alerts reliably and scaling horizontally.}
 
-    \resumeItem{\textbf{[Performance / Backend]} Improved processing throughput by \textbf{40\%} across \textbf{5,000+ endpoints} by parallelizing threat-intelligence processing and batching writes, and tuned PostgreSQL (indexing, batch writes, pg\_prewarm) to serve the data the AI assistant queries.}
+    \resumeItem{Improved processing throughput by \textbf{40\%} across \textbf{5,000+ endpoints} with parallel processing, asynchronous jobs, connection pooling, and batch writes, powering the data the assistant retrieves.}
 
-    \resumeItem{\textbf{[Real-Time / SSE]} Streamed real-time scan progress to the UI over Server-Sent Events (SSE) across 5,000+ monitored endpoints.}
+    \resumeItem{Streamed real-time updates over Server-Sent Events (SSE) and optimized PostgreSQL (indexing, cache-aside in Redis) for low-latency reads.}
 \end{itemize}
 
 \vspace{1pt}
@@ -127,9 +127,9 @@ AI engineer with 2+ years building production LLM applications on a strong Pytho
     {Noida, India}
 
 \begin{itemize}
-    \resumeItem{\textbf{[PostgreSQL]} Made database queries about \textbf{35\% faster} for a platform with \textbf{50,000+ active users} by eliminating repeated-query (N+1) patterns and adding missing indexes.}
+    \resumeItem{Made database queries about \textbf{35\% faster} for a platform with \textbf{50,000+ active users} by eliminating repeated-query (N+1) patterns and adding missing indexes.}
 
-    \resumeItem{\textbf{[Node.js / Redis]} Cut average API response time by \textbf{30\%} by caching frequently requested data in Redis on high-traffic endpoints.}
+    \resumeItem{Cut average API response time by \textbf{30\%} using cache-aside caching in Redis on high-traffic endpoints.}
 \end{itemize}
 
 % ---------- Projects ----------
@@ -143,7 +143,7 @@ AI engineer with 2+ years building production LLM applications on a strong Pytho
 \begin{itemize}
     \resumeItem{Built a multi-tenant Retrieval-Augmented Generation (RAG) assistant that answers questions over company documents with cited sources, using hybrid search (vector + BM25 keyword) over pgvector.}
 
-    \resumeItem{Integrated \textbf{8 data sources} (Google Drive, GitHub, Notion, Confluence, Jira, Slack, SharePoint, PostgreSQL) with incremental sync, so only changed documents are re-processed and re-embedded.}
+    \resumeItem{Integrated \textbf{8 data sources} (Google Drive, GitHub, Notion, Confluence, Jira, Slack, SharePoint, PostgreSQL) with incremental sync, re-embedding only changed documents.}
 \end{itemize}
 
 \vspace{1pt}
@@ -154,7 +154,7 @@ AI engineer with 2+ years building production LLM applications on a strong Pytho
     {github.com/1999matrix/vulnerability-scanner}
 
 \begin{itemize}
-    \resumeItem{Built a multithreaded port scanner checking \textbf{500+ ports per second}; cut repeated database lookups by \textbf{60\%} by caching CVE data in memory.}
+    \resumeItem{Built a multithreaded port scanner checking \textbf{500+ ports per second} with rate limiting; cut repeated database lookups by \textbf{60\%} using an in-memory CVE cache.}
 \end{itemize}
 
 % ---------- Achievements ----------
