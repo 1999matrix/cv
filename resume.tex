@@ -1,0 +1,188 @@
+\documentclass[10pt,letterpaper]{article}
+
+% ---------- Packages ----------
+\usepackage[
+    top=0.25in,
+    bottom=0.25in,
+    left=0.55in,
+    right=0.55in
+]{geometry}
+
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+
+% ---------- Colors ----------
+\definecolor{heading}{HTML}{111111}
+\definecolor{linkgray}{HTML}{1F3A5F}
+
+% Links stay clickable but use a dark navy, no bright blue / boxes
+\usepackage[colorlinks=true, linkcolor=linkgray, urlcolor=linkgray]{hyperref}
+
+% ---------- Page Setup ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{0.91}
+
+% ---------- Section Formatting ----------
+\titleformat{\section}
+  {\large\bfseries\color{heading}}
+  {}
+  {0em}
+  {}
+  [\vspace{1pt}\titlerule\vspace{3pt}]
+
+\titlespacing*{\section}
+  {0pt}
+  {6pt}
+  {1pt}
+
+% ---------- Lists ----------
+\setlist[itemize]{
+    leftmargin=1.1em,
+    itemsep=0pt,
+    topsep=1pt,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+% ---------- Custom Commands ----------
+\newcommand{\resumeSubheading}[4]{
+    \textbf{#1} \hfill \textbf{#2}\\
+    \textit{#3} \hfill \textit{#4}
+
+}
+
+% Project heading: title, tech stack, visible URL text (hyperlinked)
+\newcommand{\resumeProject}[3]{
+    \textbf{#1} \hfill \href{https://#3}{#3} \\
+    \textit{Tech: #2}
+
+}
+
+\newcommand{\resumeItem}[1]{
+    \item #1
+}
+
+% ---------- Document ----------
+\begin{document}
+
+% ---------- Header (kept in body text, not in PDF header/footer) ----------
+\begin{center}
+    {\LARGE \textbf{SHASHWAT DWIVEDI}} \\[1pt]
+    \textbf{Backend Software Engineer -- Distributed Systems \& AI/LLM Applications} \\[3pt]
+
+    Bangalore, India
+    \;|\;
+    +91-9911007561
+    \;|\;
+    \href{mailto:techshashwat5@gmail.com}{techshashwat5@gmail.com} \\[1pt]
+    \href{https://linkedin.com/in/shashwat-dwivedi-181577a8}{linkedin/shashwat-dwivedi-181577a8}
+    \;|\;
+    \href{https://github.com/1999matrix}{github.com/1999matrix}
+    \;|\;
+  
+\end{center}
+
+\vspace{-5pt}
+
+% ---------- Summary ----------
+\section{Summary}
+Backend engineer with 2+ years of experience building security software that monitors thousands of endpoints, and AI chatbots (RAG) that answer questions from company data. Cut API response time by 55\% and vulnerability detection time by 40\% in production systems. Strong in Node.js, PostgreSQL, Kafka, Redis, and LLM applications.
+
+% ---------- Skills (moved near top for 10-second recruiter scan) ----------
+\section{Technical Skills}
+
+\textbf{Languages:} JavaScript, Python, C++ \\[1pt]
+\textbf{Backend \& APIs:} Node.js, Express.js, NestJS, FastAPI, REST, GraphQL, WebSockets, SSE \\[1pt]
+\textbf{Distributed Systems:} Apache Kafka, Redis, BullMQ, Event-Driven Architecture, Microservices \\[1pt]
+\textbf{Databases:} PostgreSQL, pgvector \\[1pt]
+\textbf{AI/LLM:} RAG, OpenAI API, LangChain, Vector Embeddings, BM25 (hybrid search), Llama 3 \\[1pt]
+\textbf{Cloud \& DevOps:} AWS (EC2, S3), Docker, CI/CD, Linux, Git
+
+% ---------- Experience ----------
+\section{Professional Experience}
+
+\resumeSubheading
+    {Techbridge Consultancy Services Pvt. Ltd.}
+    {May 2024 -- Present}
+    {Software Engineer -- CyberSIO Security Platform}
+    {Gurugram, India}
+
+\begin{itemize}
+    \resumeItem{\textbf{[RAG / LLM]} Built backend services for \textbf{AstraAI}, a RAG-based security chatbot that lets analysts ask questions in plain English and get answers pulled from \textbf{8 security tools} (SIEM, UEBA, SOAR, NAC, PAM, IAM, Patch Management, Vulnerability Assessment) in one place instead of switching between dashboards.}
+
+    \resumeItem{\textbf{[Node.js / PostgreSQL / SSE]} Built backend services for Patch Management and Vulnerability Assessment, monitoring and scanning \textbf{5,000+ endpoints} with real-time scan progress using SSE. Improved vulnerability detection performance by \textbf{40\%} by parallelizing threat-intelligence processing and using batch database writes, while optimizing PostgreSQL through \textbf{indexing, normalization, referential integrity, shared buffers, and pg\_prewarm} to improve query performance under cold-cache conditions.}
+
+    \resumeItem{\textbf{[Kafka / Microservices]} Designed a scalable event-driven architecture for TB-SOAR by breaking incident processing workflows into independent Kafka-based services, enabling reliable handling of high-volume SIEM alerts and allowing individual components to scale independently without impacting the overall system.}
+
+    \resumeItem{\textbf{[Windows agent]} Built a Windows agent that automatically collects OS, hardware, software, and security details from each machine and sends them to backend APIs, replacing manual data collection.}
+
+\end{itemize}
+
+\vspace{1pt}
+
+\resumeSubheading
+    {Abekus EdTech Platform}
+    {Feb 2023 -- Sep 2023}
+    {Software Engineering Intern}
+    {Noida, India}
+
+\begin{itemize}
+    \resumeItem{\textbf{[Node.js / Redis]} Cut average API response time by \textbf{30\%} by caching frequently requested data in Redis on high-traffic endpoints.}
+
+    \resumeItem{\textbf{[PostgreSQL]} Made database queries about \textbf{35\% faster} for a platform with \textbf{50,000+ active users} by fixing repeated-query (N+1) problems and adding missing indexes.}
+
+    \resumeItem{Fixed scalability bottlenecks with product and engineering teams before peak exam season, resulting in \textbf{zero downtime} during peak traffic.}
+\end{itemize}
+
+% ---------- Projects ----------
+\section{Projects}
+
+\resumeProject
+    {Memora --- Enterprise AI Knowledge Assistant}
+    {Python, FastAPI, NestJS, PostgreSQL, pgvector, Redis, BullMQ, OpenAI API, RAG, BM25, SSE}
+    {github.com/1999matrix/Memora}
+
+\begin{itemize}
+    \resumeItem{Built a multi-tenant AI assistant that reads company documents and answers questions with sources, using RAG and hybrid search (vector + keyword).}
+
+    \resumeItem{Connected \textbf{8 data sources} (Google Drive, GitHub, Notion, Confluence, Jira, Slack, SharePoint, PostgreSQL) with incremental sync, so only changed data is re-processed.}
+\end{itemize}
+
+\vspace{1pt}
+
+\resumeProject
+    {Cross-Platform Vulnerability Scanner}
+    {C++, Go, Nmap, Socket Programming, Multithreading}
+    {github.com/1999matrix/vulnerability-scanner}
+
+\begin{itemize}
+    \resumeItem{Built a multithreaded port scanner that checks \textbf{500+ ports per second}, with adjustable scan depth and rate limiting.}
+
+    \resumeItem{Cut repeated database lookups by \textbf{60\%} during large scans by caching CVE (known vulnerability) data in memory.}
+\end{itemize}
+
+% ---------- Achievements ----------
+\section{Achievements}
+
+\begin{itemize}
+    \resumeItem{\textbf{1st Place, TechBridge Innovathon 2025:} Led a team that built an AI-powered SIEM chatbot with real-time log analysis; chosen best project among \textbf{30+ teams}.}
+
+    \resumeItem{\textbf{1st Runner-Up, Rajasthan IT Day Hackathon 2023:} Built a government-facing solution; placed 2nd among \textbf{500+ teams}.}
+
+    \resumeItem{\textbf{Codeforces Specialist:} Max rating 1400+; solved \textbf{450+ problems} on Codeforces and LeetCode.}
+\end{itemize}
+
+% ---------- Education ----------
+\section{Education}
+
+\resumeSubheading
+    {Ajay Kumar Garg Engineering College}
+    {2020 -- 2024}
+    {B.Tech., Computer Science \& Engineering}
+    {Ghaziabad, India}
+
+\end{document}
