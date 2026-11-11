@@ -1,0 +1,28 @@
+CUSA uninstaller leaves credentials, API tokens, telemetry, and crash dumps on the system
+
+
+
+Key details
+Module Name
+
+
+Add text
+Severity
+
+
+None
+Priority
+
+
+Medium
+Description
+
+After uninstalling the CUSA agent, multiple folders, files, and sensitive data remain on the system. These artifacts include plaintext credentials, API tokens, machine keys, telemetry queue data, agent state, logs, UI data, and Windows Error Reporting crash dumps.
+
+A security agent must remove all traces on uninstall. Leaving behind credentials and telemetry is a critical security and compliance issue.
+
+In Agent summary networks interfaces are not comming
+
+Enrollment Credentials Should Not Be Exposed in Agent UI
+
+CYB-6107: Agent Tamper Detection is not working
